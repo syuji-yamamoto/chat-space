@@ -30,7 +30,7 @@ chat-space データベース設計
 
 ### Association
 - belongs_to :user
-- belongs_to :groups
+- belongs_to :group
 
 ## groupsテーブル
 
@@ -39,6 +39,7 @@ chat-space データベース設計
 |groups_id|integer|:null false, foreign_key: true|
 
 ### Association
+- has_many :group_users
 - has_many :user, through: :groups_users
 - has_many :messages
 
