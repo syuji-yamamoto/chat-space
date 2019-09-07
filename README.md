@@ -15,6 +15,7 @@ chat-space データベース設計
 |address|integer|null: false, unique: true|
 
 ### Association
+- has_many :group_users
 - has_many :messages
 - has_many :groups, through: :groups_users
 
