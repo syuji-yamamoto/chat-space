@@ -12,7 +12,6 @@ chat-space データベース設計
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, foreign_key: true|
-|address|integer|null: false, unique: true|
 
 ### Association
 - has_many :group_users
@@ -37,11 +36,11 @@ chat-space データベース設計
 
 |Column|Type|Options|
 |------|----|-------|
-|groups_id|integer|:null false, foreign_key: true|
+|name|string|:null false, foreign_key: true|
 
 ### Association
 - has_many :group_users
-- has_many :user, through: :groups_users
+- has_many :users, through: :groups_users
 - has_many :messages
 
 ## groups_usersテーブル
