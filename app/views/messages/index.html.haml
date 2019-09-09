@@ -63,13 +63,13 @@
         %p.message__text
           さようなら
     .form
-      %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/messages", :entype => "multipart/form-data", :method => "post"}
-        %input{:name => "utf-8", :type => "hidden", :value => "#"}/
-        %input{:type => "hidden", :name => "autenticity_token", :value => "#"}
+      %form#new_message.new_message{"accept-charset": "UTF-8", action: "/groups/messages", entype: "multipart/form-data", method: "post"}
+        %input{name: "utf-8", type: "hidden", value: "#"}/
+        %input{type: "hidden", name: "autenticity_token", value: "#"}
         .input-box
-          %input#message-content.input-box__text{:placeholder => "type a message", :type => "text", :name => "message[content]"}
-          %label.input-box__image{:for => "upload-icon"}
+          %input#message-content.input-box__text{placeholder: "type a message", type: "text", name: "message[content]"}
+          %label.input-box__image{for: "upload-icon"}
             %i.fa.fa-picture-o
-            %input.input-box__image__file{:name => "message[image]", :type => "file", :id => "upload-icon"}/
-        %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}
+            %input.input-box__image__file{name: "message[image]", type: "file", id: "upload-icon"}/
+        %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}
 %body
