@@ -30,12 +30,12 @@
       font-weight: bold;
       &__menu{
         display: flex;
-        & li{
+         li{
           margin-left: 0.3rem;
           }
         }
       }
-    & a{
+     a{
       color: $side-text-color;
     }
     &__btn{
@@ -46,7 +46,7 @@
       -webkit-font-smoothing: antialiased;
     }
   }
-  & a{
+   a{
     color: $side-text-color;
   }
   .groups{
@@ -78,7 +78,7 @@
     justify-content: space-between;
     border-bottom: solid 1px #eee;
     overflow: scroll;
-    & a{
+     a{
       color: $flash-color;
     }
     &__left-box{
@@ -140,7 +140,7 @@
     height: 90px;
     padding: 20px 40px;
     background-color: #ddd;
-    & form{
+     form{
       display: flex;
       .input-box{
         position: relative;
