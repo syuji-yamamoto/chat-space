@@ -60,12 +60,5 @@
             2019/09/09(Mon) 04:51:23
         %p.message__text
           さようなら
-    .form
-      = form_for [@group, @message] do |f|
-        = f.text_field :text, class: 'form__message', placeholder: 'type a message'
-        .form__mask
-          = f.label :image, class: 'form__mask__image' do
-            = fa_icon 'picture-o', class: 'icon'
-            = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'form__submit'
+    
 %body
