@@ -1,6 +1,6 @@
 .chat-main{
   width: calc(100vw - 300px);
-  float: left;
+  float: right;
   // ヘッダー部分
   .main-header{
     height: 100px;
@@ -14,6 +14,7 @@
     }
     &__left-box{
       margin-top:35px;
+      float:left;
       &__current-group{
         font-size: 20px;
         color: #333;
@@ -29,13 +30,18 @@
       }
     }
     &__edit-btn{
+      float: right;
+    a.btn{
       position: absolute;
       height: 40px;
       line-height: 40px;
       padding: 0 20px;
       margin-top: 28px;
       border: solid 1px $flash-color;
+      top: 3px;
       right: 40px;
+      text-decoration: none;
+      }
     }
   }
 // メッセージ部分
