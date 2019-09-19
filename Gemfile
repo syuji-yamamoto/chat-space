@@ -24,6 +24,12 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+
 end
 
 group :development do
@@ -36,6 +42,7 @@ end
 
 group :test do
   gem 'rspec'
+  gem 'faker'
 end
 
 group :production do
