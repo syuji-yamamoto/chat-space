@@ -1,9 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var addImage = '';
-    if (message.image.url) {
-      addImage = `<img src="${message.image.url}" class="lower-message__image">`;
-    }
+    var addImage = message.image.url ? addImage = `<img src="${message.image.url}" class="lower-message__image">`:'';
     var html =`<div class="message">
                 <div class="message__upper-info">
                   <div class="message__upper-info__talker">
@@ -39,7 +36,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('.input-box__message').val('');
+      $('.new_message')[0].reset();
       $('.submit-btn').removeAttr('disabled');
       scrollBottom();
       function scrollBottom(){
