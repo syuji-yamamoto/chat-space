@@ -1,8 +1,8 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message){
     var addImage = message.image.url ? addImage = `<img src="${message.image.url}" class="lower-message__image">`:'';
-    var html =`<div class="message">
-                <div class="message__upper-info" data-id = "${message.id}">
+    var html =`<div class="message" data-id = "${message.id}">
+                <div class="message__upper-info">
                   <div class="message__upper-info__talker">
                     ${message.user_name}
                   </div>
@@ -21,6 +21,7 @@ $(document).on('turbolinks:load', function(){
               </div>`
     return html;
   }
+
   $('.new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -48,30 +49,38 @@ $(document).on('turbolinks:load', function(){
     .fail(function(data){
       alert('エラーが発生しました');
     })
+    .always(function(data){
+      $('.submit-btn').prop('disabled', false);
+    })
   })
+  
+  var reloadMessages = function(){
+    var last_message_id = $('.message').last().data('id');
+    var href = 'api/messages'
+    $.ajax({
+      url: href,
+      type: "GET",
+      data: {id: last_message_id},
+      dataType: "json"
+    })
+    .done(function(messages) {
+      messages.forEach(function(message) {
+        var insertHTML = buildHTML(message)
+        $('.messages').append(insertHTML)
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      })
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  };
 
     var interval = setInterval(function() {
     if (location.href.match(/\/groups\/\d+\/messages/)){
-      var last_message_id = $('.message').last().data('id');
-      var href = 'api/messages'
-      $.ajax({
-        url: href,
-        type: "GET",
-        data: {id: last_message_id},
-        dataType: "json"
-      })
-      .done(function(messages) {
-        messages.forEach(function(message) {
-          var insertHTML = buildHTML(message)
-          $('.messages').append(insertHTML)
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-        })
-      })
-      .fail(function() {
-        alert('自動更新に失敗しました');
-      });
+    reloadMessages();
     } else {
-        clearInterval(interval);
-      }
+    clearInterval(interval);
+    }
   } , 5000 );
+
 });
