@@ -53,7 +53,7 @@
           $(this).parent().remove();
           appendMembers(name, user_id);
       });
-      $(document).on("click", '.user_search_remove', function () {
+      $(document).on("click", '.chat-group-user__btn--remove', function () {
           $(this).parent().remove();
       });
   });
